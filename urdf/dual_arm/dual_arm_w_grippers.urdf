@@ -1022,7 +1022,7 @@
         <visual>
             <origin xyz="0 -0.032 0" rpy="0 0 -1.57"/>
             <geometry>
-                <mesh filename="package://aloha_maniskill_sim/meshes/d435.dae" /> <!-- 根据D435相机的实际尺寸调整 -->
+                <mesh filename="package://kuka_maniskill_sim/meshes/camera/d435.dae" /> <!-- 根据D435相机的实际尺寸调整 -->
             </geometry>
             <!-- <material name="black">
                 <color rgba="0.8 0.8 0.8 1"/>
@@ -1053,7 +1053,7 @@
         <visual>
             <origin xyz="0 -0.032 0" rpy="0 0 -1.57"/>
             <geometry>
-                <mesh filename="package://aloha_maniskill_sim/meshes/d435.dae" /> <!-- 根据D435相机的实际尺寸调整 -->
+                <mesh filename="package://kuka_maniskill_sim/meshes/camera/d435.dae" /> <!-- 根据D435相机的实际尺寸调整 -->
             </geometry>
             <!-- <material name="black">
                 <color rgba="0.8 0.8 0.8 1"/>

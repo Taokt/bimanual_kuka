@@ -1,87 +1,54 @@
-##
-## Copyright (c) 2023 NVIDIA CORPORATION & AFFILIATES. All rights reserved.
-##
-## NVIDIA CORPORATION, its affiliates and licensors retain all intellectual
-## property and proprietary rights in and to this material, related
-## documentation and any modifications thereto. Any use, reproduction,
-## disclosure or distribution of this material and related documentation
-## without an express license agreement from NVIDIA CORPORATION or
-## its affiliates is strictly prohibited.
-##
-robot_cfg:
-  kinematics:
-    base_link: base_link
-    collision_link_names:
-      - iiwa7_link_1
-      - iiwa7_link_2
-      - iiwa7_link_3
-      - iiwa7_link_4
-      - iiwa7_link_5
-      - iiwa7_link_6
-    collision_sphere_buffer: 0.005
-    collision_spheres: spheres/iiwa_allegro.yml
-    ee_link: iiwa7_link_ee
-    self_collision_buffer:
-      iiwa7_link_1: -0.02
-      iiwa7_link_2: 0.0
-      iiwa7_link_3: 0.0
-      iiwa7_link_4: 0.0
-      iiwa7_link_5: 0.0
-      iiwa7_link_6: 0.0
-
-    self_collision_ignore:
-      {
-        iiwa7_link_1: [iiwa7_link_2, iiwa7_link_3],
-        iiwa7_link_2: [iiwa7_link_3, iiwa7_link_4],
-        iiwa7_link_3: [iiwa7_link_4, iiwa7_link_5],
-        iiwa7_link_4: [iiwa7_link_5, iiwa7_link_6],
-        iiwa7_link_5: [iiwa7_link_6],
-      }
-    urdf_path: robot/iiwa_allegro_description/iiwa.urdf
-    asset_root_path: robot/iiwa_allegro_description
-    mesh_link_names:
-      - iiwa7_link_1
-      - iiwa7_link_2
-      - iiwa7_link_3
-      - iiwa7_link_4
-      - iiwa7_link_5
-      - iiwa7_link_6
-    cspace:
-      joint_names:
-        [
-          "iiwa7_joint_1",
-          "iiwa7_joint_2",
-          "iiwa7_joint_3",
-          "iiwa7_joint_4",
-          "iiwa7_joint_5",
-          "iiwa7_joint_6",
-          "iiwa7_joint_7",
-        ]
-      cspace_distance_weight:
-        - 1.0
-        - 0.9
-        - 0.8
-        - 0.8
-        - 0.7
-        - 0.6
-        - 0.5
-
-      null_space_weight:
-        - 1.0
-        - 1.0
-        - 1.0
-        - 1.0
-        - 1.0
-        - 1.0
-        - 1.0
-
-      retract_config:
-        - 0.0
-        - -0.78
-        - 0.0
-        - -1.4
-        - 0.0
-        - 0.6
-        - 0.0
-      max_acceleration: 15.0
-      max_jerk: 500.0
+urdf_path: "./urdf/dual_arm/dual_arm_w_grippers.urdf"
+srdf_path: "./srdf/dual_arm/dual_arm_w_grippers.srdf"
+joint_stiffness: 1000
+joint_damping: 200
+gripper_stiffness: 1000
+gripper_damping: 200
+move_group: ["left_arm","right_arm"]
+ee_joints: ["left_arm_A7", "right_arm_A7"]
+arm_joints_name: [["left_arm_A1", "left_arm_A2", "left_arm_A3", "left_arm_A4", "left_arm_A5", "left_arm_A6", "left_arm_A7"], ["right_arm_A1", "right_arm_A2", "right_arm_A3", "right_arm_A4", "right_arm_A5", "right_arm_A6", "right_arm_A7"]]
+gripper_name:
+  - base: "left_robotiq_hande_left_finger_joint"
+    mimic: [["left_robotiq_hande_right_finger_joint", 1., 0.]]
+  - base: "right_robotiq_hande_left_finger_joint"
+    mimic: [["right_robotiq_hande_right_finger_joint", 1., 0.]]
+gripper_bias: 0.12
+gripper_scale: [-0.01, 0.045]
+homestate: [[0.057860993,1.1664766,1.0904326,0.6481283,0,1.156943,-0.1790052], [0.5341759,0.3204597,0.03399502,-1.7246392,1.4899178,1.0517951,0.05101651]]
+delta_matrix: [[1,0,0],[0,1,0],[0,0,1]]
+global_trans_matrix: [[1,0,0],[0,-1,0],[0,0,-1]]
+robot_pose: [[0, -1.1, 0.75, 0.707, 0, 0, -0.707]]
+# planner: "mplib_screw"
+planner: "curobo"
+dual_arm: True
+rotate_lim: [0, 1]
+grasp_perfect_direction: ['front_right', 'front_left']
+static_camera_list: 
+- name: head_camera
+  type: D435
+  position:
+  - -0.032
+  - -0.45
+  - 1.35
+  forward:
+  - 0
+  - 0.6
+  - -0.8
+  left:
+  - -1
+  - 0
+  - 0
+- name: front_camera
+  type: D435
+  position:
+  - 0
+  - -0.45
+  - 0.85
+  forward:
+  - 0
+  - 1
+  - -0.1
+  left:
+  - -1
+  - 0
+  - 0
