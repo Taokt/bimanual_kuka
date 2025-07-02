@@ -11,20 +11,20 @@ robot_cfg:
 
     base_link: "right_arm_link_0"
     ee_link: "right_arm_link_7"
-    collision_link_names: 
-      [
-        # "right_arm_link_0",
-        "right_arm_link_1",
-        "right_arm_link_2",
-        "right_arm_link_3",
-        "right_arm_link_4",
-        "right_arm_link_5",
-        "right_arm_link_6",
-        "right_arm_link_7",
-        "right_robotiq_hande_left_finger",
-        "right_robotiq_hande_right_finger",
-        "right_camera"
-      ]
+    collision_link_names: null
+      # [
+      #   # "right_arm_link_0",
+      #   "right_arm_link_1",
+      #   "right_arm_link_2",
+      #   "right_arm_link_3",
+      #   "right_arm_link_4",
+      #   "right_arm_link_5",
+      #   "right_arm_link_6",
+      #   "right_arm_link_7",
+      #   "right_robotiq_hande_left_finger",
+      #   "right_robotiq_hande_right_finger",
+      #   "right_camera"
+      # ]
     collision_spheres: /home/ji0341li/project/RoboTwin/assets/embodiments/bimanual_kuka/collision_kuka_right.yml
     collision_sphere_buffer: 0.004
     extra_collision_spheres: {}
@@ -60,7 +60,7 @@ robot_cfg:
         "right_robotiq_hande_right_finger",
         "right_camera"
       ]
-    lock_joints: {"right_robotiq_hande_left_finger_joint": 0.04} # , "right_robotiq_hande_right_finger_joint": 0.04
+    # lock_joints: {"right_robotiq_hande_left_finger_joint": 0.04} # , "right_robotiq_hande_right_finger_joint": 0.04
     extra_links: null
 
     cspace:

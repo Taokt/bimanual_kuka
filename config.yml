@@ -14,10 +14,12 @@ gripper_name:
     mimic: [["right_robotiq_hande_right_finger_joint", 1., 0.]]
 gripper_bias: 0.12
 gripper_scale: [-0.01, 0.045]
-homestate: [[0.057860993,1.1664766,1.0904326,0.6481283,0,1.156943,-0.1790052], [0.5341759,0.3204597,0.03399502,-1.7246392,1.4899178,1.0517951,0.05101651]]
+# homestate: [[0.057860993,1.1664766,1.0904326,0.6481283,0,1.156943,-0.1790052], [0.5341759,0.3204597,0.03399502,-1.7246392,1.4899178,1.0517951,0.05101651]]
+homestate: [[0,0,0,0,0,0,0], [0,0,0,0,0,0,0]]
 delta_matrix: [[1,0,0],[0,1,0],[0,0,1]]
 global_trans_matrix: [[1,0,0],[0,-1,0],[0,0,-1]]
-robot_pose: [[0, -1.1, 0.75, 0.707, 0, 0, -0.707]]
+# robot_pose: [[0, -1.1, 0.75, 0.707, 0, 0, -0.707]] # Origional kuka base : robot does not move
+robot_pose: [[0, -0.65, 0.0, 0.707, 0, 0, 0.707]]  # Base copied from aloha : at least robot moves, notice the main different is the rotation
 # planner: "mplib_screw"
 planner: "curobo"
 dual_arm: True
