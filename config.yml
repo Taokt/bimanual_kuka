@@ -4,7 +4,7 @@ joint_stiffness: 1000
 joint_damping: 200
 gripper_stiffness: 1000
 gripper_damping: 200
-move_group: ["left_arm","right_arm"]
+move_group: ["left_arm_link_ee","right_arm_link_ee"]
 ee_joints: ["left_arm_A7", "right_arm_A7"]
 arm_joints_name: [["left_arm_A1", "left_arm_A2", "left_arm_A3", "left_arm_A4", "left_arm_A5", "left_arm_A6", "left_arm_A7"], ["right_arm_A1", "right_arm_A2", "right_arm_A3", "right_arm_A4", "right_arm_A5", "right_arm_A6", "right_arm_A7"]]
 gripper_name:
@@ -12,19 +12,17 @@ gripper_name:
     mimic: [["left_robotiq_hande_right_finger_joint", 1., 0.]]
   - base: "right_robotiq_hande_left_finger_joint"
     mimic: [["right_robotiq_hande_right_finger_joint", 1., 0.]]
-gripper_bias: 0.12
+gripper_bias: 0.1
 gripper_scale: [-0.01, 0.045]
-# homestate: [[0.057860993,1.1664766,1.0904326,0.6481283,0,1.156943,-0.1790052], [0.5341759,0.3204597,0.03399502,-1.7246392,1.4899178,1.0517951,0.05101651]]
-homestate: [[0,0,0,0,0,0,0], [0,0,0,0,0,0,0]]
-delta_matrix: [[1,0,0],[0,1,0],[0,0,1]]
-global_trans_matrix: [[1,0,0],[0,-1,0],[0,0,-1]]
-# robot_pose: [[0, -1.1, 0.75, 0.707, 0, 0, -0.707]] # Origional kuka base : robot does not move
-robot_pose: [[0, -0.65, 0.0, 0.707, 0, 0, 0.707]]  # Base copied from aloha : at least robot moves, notice the main different is the rotation
+homestate: [[-2.7816389, -0.25712854, -0.54790103, 1.5019695, 0.9828859, -1.2982103, -0.8782399, 0.03, 0.03], [-0.7425019, 0.35823947, 0.30317807,-1.3665223, 1.9586678, -1.5821546, 0.00046975943, 0.03, 0.03]]
+delta_matrix: [[0,0,1],[0,-1,0],[1,0,0]]
+global_trans_matrix: [[0,1,0],[-1,0,0],[0,0,1]]
+robot_pose: [[0, -0.65, 0.85, -1, 0, 0, 1]]
 # planner: "mplib_screw"
 planner: "curobo"
 dual_arm: True
 rotate_lim: [0, 1]
-grasp_perfect_direction: ['front_right', 'front_left']
+grasp_perfect_direction: ['right', 'left']
 static_camera_list: 
 - name: head_camera
   type: D435

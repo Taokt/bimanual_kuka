@@ -21,6 +21,8 @@ robot_cfg:
       #   "left_arm_link_5",
       #   "left_arm_link_6",
       #   "left_arm_link_7",
+      #   "left_robotiq_hande_coupler",
+      #   "left_robotiq_hande_link",
       #   "left_robotiq_hande_left_finger",
       #   "left_robotiq_hande_right_finger",
       #   "left_camera"
@@ -35,7 +37,13 @@ robot_cfg:
         left_arm_link_2: [left_arm_link_3, left_arm_link_4],
         left_arm_link_3: [left_arm_link_4, left_arm_link_5],
         left_arm_link_4: [left_arm_link_5, left_arm_link_6],
-        left_arm_link_5: [left_arm_link_6],
+        left_arm_link_5: [left_arm_link_6, left_arm_link_7],
+        left_arm_link_6: [left_arm_link_7, left_robotiq_hande_coupler, left_robotiq_hande_link],
+        left_arm_link_7: [left_robotiq_hande_coupler, left_robotiq_hande_link, left_robotiq_hande_left_finger, left_robotiq_hande_right_finger, left_camera],
+        left_robotiq_hande_coupler: [left_robotiq_hande_link, left_robotiq_hande_left_finger, left_robotiq_hande_right_finger, left_camera],
+        left_robotiq_hande_link: [left_robotiq_hande_left, left_robotiq_hande_left_finger, left_robotiq_hande_right_finger, left_camera],
+        left_robotiq_hande_left_finger: [left_robotiq_hande_right_finger, left_camera],
+        left_robotiq_hande_right_finger: [left_camera],
       }
     self_collision_buffer:
       {
@@ -45,7 +53,12 @@ robot_cfg:
       left_arm_link_4: 0.0,
       left_arm_link_5: 0.0,
       left_arm_link_6: 0.0,
-      "left_camera": 0.00
+      left_arm_link_7: 0.0,
+      left_robotiq_hande_coupler: 0.02,
+      left_robotiq_hande_link: 0.00,
+      left_robotiq_hande_left_finger: 0.01,
+      left_robotiq_hande_right_finger: 0.01,
+      left_camera: 0.00
       }
 
     mesh_link_names: [
@@ -56,6 +69,8 @@ robot_cfg:
         "left_arm_link_5",
         "left_arm_link_6",
         "left_arm_link_7",
+        "left_robotiq_hande_coupler",
+        "left_robotiq_hande_link",
         "left_robotiq_hande_left_finger",
         "left_robotiq_hande_right_finger",
         "left_camera"
@@ -75,10 +90,10 @@ robot_cfg:
         "left_robotiq_hande_left_finger_joint",
         "left_robotiq_hande_right_finger_joint"
       ]
-      retract_config: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.04, 0.04]
+      retract_config: [0.0, -0.78, 0.0, -1.4, 0.0, 0.6, 0.0, 0.04, 0.04]
       null_space_weight: [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]
-      cspace_distance_weight: [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0] 
+      cspace_distance_weight: [1.0, 0.9, 0.8, 0.8, 0.7, 0.6, 0.5, 1.0, 1.0] 
       max_jerk: 500.0
       max_acceleration: 15.0
 planner:
-  frame_bias: [-0.2305, -0.297, -0.782]
+  frame_bias: [0, 0, 0]
