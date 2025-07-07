@@ -6,11 +6,11 @@ robot_cfg:
     # isaac_usd_path: ""
     # usd_flip_joints: {}
     # usd_flip_joint_limits: []
-    urdf_path: /home/ji0341li/project/RoboTwin/assets/embodiments/bimanual_kuka/urdf/dual_arm/dual_arm_w_grippers.urdf
+    urdf_path: /home/project/RoboTwin/assets/embodiments/bimanual_kuka/urdf/dual_arm/dual_arm_w_grippers.urdf
     asset_root_path: null
 
-    base_link: "right_arm_link_0"
-    ee_link: "right_arm_link_7"
+    base_link: "bh_robot_base"
+    ee_link: "right_arm_link_ee"
     collision_link_names: null
       # [
       #   # "right_arm_link_0",
@@ -25,7 +25,7 @@ robot_cfg:
       #   "right_robotiq_hande_right_finger",
       #   "right_camera"
       # ]
-    collision_spheres: /home/ji0341li/project/RoboTwin/assets/embodiments/bimanual_kuka/collision_kuka_right.yml
+    collision_spheres: /home/project/RoboTwin/assets/embodiments/bimanual_kuka/collision_kuka_right.yml
     collision_sphere_buffer: 0.004
     extra_collision_spheres: {}
     use_global_cumul: True
