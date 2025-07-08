@@ -8,7 +8,7 @@ from curobo.types.robot import RobotConfig
 from curobo.util_file import get_robot_path, join_path, load_yaml
 
 
-urdf_file = "/home/ji0341li/project/RoboTwin2.0/assets/embodiments/bimanual_kuka/urdf/dual_arm/dual_arm_w_grippers.urdf"
+urdf_file = "/home/project/RoboTwin2.0/assets/embodiments/bimanual_kuka/urdf/dual_arm/dual_arm_w_grippers.urdf"
 base_link = "left_arm_link_0"
 ee_link = "left_arm_link_7"
 
