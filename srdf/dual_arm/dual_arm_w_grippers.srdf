@@ -156,6 +156,8 @@
     <disable_collisions link1="left_robotiq_hande_link"  link2="left_robotiq_hande_right_finger" reason="Adjacent"/>
     <disable_collisions link1="right_robotiq_hande_link" link2="right_robotiq_hande_left_finger"  reason="Adjacent"/>
     <disable_collisions link1="right_robotiq_hande_link" link2="right_robotiq_hande_right_finger" reason="Adjacent"/>
+    <disable_collisions link1="left_robotiq_hande_left_finger"  link2="left_robotiq_hande_right_finger" reason="Adjacent"/>
+    <disable_collisions link1="right_robotiq_hande_left_finger"  link2="right_robotiq_hande_right_finger" reason="Adjacent"/>
 
     <!-- Cross-hand finger contacts (optional but handy for close workspaces) -->
     <disable_collisions link1="left_robotiq_hande_left_finger"  link2="right_robotiq_hande_left_finger"  reason="Adjacent"/>
