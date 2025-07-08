@@ -11,28 +11,29 @@ robot_cfg:
 
     base_link: "bh_robot_base"
     ee_link: "left_arm_link_ee"
-    collision_link_names: null
-      # [
-      #   # "left_arm_link_0",
-      #   "left_arm_link_1",
-      #   "left_arm_link_2",
-      #   "left_arm_link_3",
-      #   "left_arm_link_4",
-      #   "left_arm_link_5",
-      #   "left_arm_link_6",
-      #   "left_arm_link_7",
-      #   "left_robotiq_hande_coupler",
-      #   "left_robotiq_hande_link",
-      #   "left_robotiq_hande_left_finger",
-      #   "left_robotiq_hande_right_finger",
-      #   "left_camera"
-      # ]
+    collision_link_names:
+      [
+        "left_arm_link_0",
+        "left_arm_link_1",
+        "left_arm_link_2",
+        "left_arm_link_3",
+        "left_arm_link_4",
+        "left_arm_link_5",
+        "left_arm_link_6",
+        "left_arm_link_7",
+        "left_robotiq_hande_coupler",
+        "left_robotiq_hande_link",
+        # "left_robotiq_hande_left_finger",
+        # "left_robotiq_hande_right_finger",
+        "left_camera"
+      ]
     collision_spheres: /home/project/RoboTwin/assets/embodiments/bimanual_kuka/collision_kuka_left.yml
     collision_sphere_buffer: 0.004
     extra_collision_spheres: {}
     use_global_cumul: True
     self_collision_ignore:
       {
+        left_arm_link_0: [left_arm_link_1, left_arm_link_2],
         left_arm_link_1: [left_arm_link_2, left_arm_link_3],
         left_arm_link_2: [left_arm_link_3, left_arm_link_4],
         left_arm_link_3: [left_arm_link_4, left_arm_link_5],
@@ -47,6 +48,7 @@ robot_cfg:
       }
     self_collision_buffer:
       {
+      left_arm_link_0: 0.0,
       left_arm_link_1: -0.02,
       left_arm_link_2: 0.0,
       left_arm_link_3: 0.0,
@@ -62,6 +64,7 @@ robot_cfg:
       }
 
     mesh_link_names: [
+        "left_arm_link_0",
         "left_arm_link_1",
         "left_arm_link_2",
         "left_arm_link_3",
@@ -75,7 +78,7 @@ robot_cfg:
         "left_robotiq_hande_right_finger",
         "left_camera"
       ]
-    # lock_joints: {"left_robotiq_hande_left_finger_joint": 0.04} # "left_robotiq_hande_right_finger_joint": 0.04
+    # lock_joints: {"left_robotiq_hande_left_finger_joint": 0.04, "left_robotiq_hande_right_finger_joint": 0.04}
     extra_links: null
 
     cspace:

@@ -69,6 +69,12 @@ collision_spheres:
     left_arm_link_7:
         - "center": [0.0, 0.0, 0.0]
           "radius": 0.01
+    left_robotiq_hande_coupler:
+        - "center": [0.0, 0.0, 0.0]
+          "radius": 0.02
+    left_robotiq_hande_link:
+        - "center": [0.0, 0.0, 0.0]
+          "radius": 0.01
     left_robotiq_hande_left_finger:
         - "center": [0.055, -0.013, -0.0]
           "radius": 0.01
