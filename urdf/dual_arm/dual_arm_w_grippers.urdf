@@ -884,28 +884,72 @@
 	</link>
 
 	<link name="left_robotiq_hande_link">
-	<visual>
-		<geometry>
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0.04607"/>
+      <mass value="0.86387"/>
+      <inertia ixx="1017560E-9" ixy="0" ixz="2235E-9" iyy="1028041E-9" iyz="0" izz="489810E-9"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
 		<mesh filename="kuka_maniskill_sim/meshes/gripper/hande.dae"/>
-		</geometry>
-	</visual>
+      </geometry>
+      <material name="Dark">
+        <color rgba=".1 0.1 0.1 1.0"/>
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+		<mesh filename="kuka_maniskill_sim/meshes/gripper/hande.dae"/>
+      </geometry>
+    </collision>
 	</link>
 
 	<link name="left_robotiq_hande_left_finger">
-	<visual>
-		<geometry>
+    <inertial>
+      <origin rpy="0 0 0" xyz="0.02262 -0.00759 0.00738"/>
+      <mass value="0.03804"/>
+      <inertia ixx="13567E-9" ixy="1849E-9" ixz="3622E-9" iyy="15784E-9" iyz="3616E-9" izz="7478E-9"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
 		<mesh filename="kuka_maniskill_sim/meshes/gripper/finger.dae"/>
-		</geometry>
-	</visual>
+      </geometry>
+      <material name="DarkGray">
+        <color rgba=".4 0.4 0.4 1.0"/>
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+		<mesh filename="kuka_maniskill_sim/meshes/gripper/finger_collision.dae"/>
+      </geometry>
+    </collision>
 	</link>
 
 	<link name="left_robotiq_hande_right_finger">
-	<visual>
-		<origin rpy="0 0 3.14159265"/>
-		<geometry>
+    <inertial>
+      <origin rpy="0 0 3.14159265" xyz="-0.02262 0.00759 0.00738"/>
+      <mass value="0.03804"/>
+      <inertia ixx="13567E-9" ixy="1849E-9" ixz="3622E-9" iyy="15784E-9" iyz="3616E-9" izz="7478E-9"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 0 3.14159265" xyz="0 0 0"/>
+      <geometry>
 		<mesh filename="kuka_maniskill_sim/meshes/gripper/finger.dae"/>
-		</geometry>
-	</visual>
+      </geometry>
+      <material name="DarkGray">
+        <color rgba=".4 0.4 0.4 1.0"/>
+      </material>
+    </visual>
+    <collision>
+		<origin rpy="0 0 3.14159265"/>
+      <geometry>
+		<mesh filename="kuka_maniskill_sim/meshes/gripper/finger_collision.dae"/>
+      </geometry>
+    </collision>
 	</link>
 
 	<link name="left_robotiq_hande_end"/>
@@ -924,20 +968,20 @@
 	</joint>
 
 	<joint name="left_robotiq_hande_left_finger_joint" type="prismatic">
-	<parent link="left_robotiq_hande_link"/>
+    <parent link="left_robotiq_hande_link"/>
 	<child  link="left_robotiq_hande_left_finger"/>
 	<origin xyz="0 0 0.099" rpy="0 0 0"/>
 	<axis xyz="1 0 0"/>
-	<limit effort="130" lower="0.0" upper="0.03" velocity="0.15"/>
+	<limit effort="130" lower="0.0" upper="0.025" velocity="0.15"/>
 	</joint>
 
 	<joint name="left_robotiq_hande_right_finger_joint" type="prismatic">
-	<parent link="left_robotiq_hande_link"/>
+    <parent link="left_robotiq_hande_link"/>
 	<child  link="left_robotiq_hande_right_finger"/>
 	<origin xyz="0 0 0.099" rpy="0 0 0"/>
-	<axis xyz="-1 0 0"/>
-	<limit effort="130" lower="0.0" upper="0.03" velocity="0.15"/>
-	<mimic joint="left_robotiq_hande_left_finger_joint" multiplier="1" offset="0"/>
+    <axis xyz="-1 0 0"/>
+	<limit effort="130" lower="0.0" upper="0.025" velocity="0.15"/>
+	<!-- <mimic joint="left_robotiq_hande_left_finger_joint" multiplier="1" offset="0"/> -->
 	</joint>
 
 	<joint name="left_robotiq_hande_end_joint" type="fixed">
@@ -956,28 +1000,72 @@
 	</link>
 
 	<link name="right_robotiq_hande_link">
-	<visual>
-		<geometry>
+    <inertial>
+      <origin rpy="0 0 0" xyz="0 0 0.04607"/>
+      <mass value="0.86387"/>
+      <inertia ixx="1017560E-9" ixy="0" ixz="2235E-9" iyy="1028041E-9" iyz="0" izz="489810E-9"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
 		<mesh filename="kuka_maniskill_sim/meshes/gripper/hande.dae"/>
-		</geometry>
-	</visual>
+      </geometry>
+      <material name="Dark">
+        <color rgba=".1 0.1 0.1 1.0"/>
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+		<mesh filename="kuka_maniskill_sim/meshes/gripper/hande.dae"/>
+      </geometry>
+    </collision>
 	</link>
 
 	<link name="right_robotiq_hande_left_finger">
-	<visual>
-		<geometry>
+    <inertial>
+      <origin rpy="0 0 0" xyz="0.02262 -0.00759 0.00738"/>
+      <mass value="0.03804"/>
+      <inertia ixx="13567E-9" ixy="1849E-9" ixz="3622E-9" iyy="15784E-9" iyz="3616E-9" izz="7478E-9"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
 		<mesh filename="kuka_maniskill_sim/meshes/gripper/finger.dae"/>
-		</geometry>
-	</visual>
+      </geometry>
+      <material name="DarkGray">
+        <color rgba=".4 0.4 0.4 1.0"/>
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+		<mesh filename="kuka_maniskill_sim/meshes/gripper/finger_collision.dae"/>
+      </geometry>
+    </collision>
 	</link>
 
 	<link name="right_robotiq_hande_right_finger">
-	<visual>
-		<origin rpy="0 0 3.14159265"/>
-		<geometry>
+    <inertial>
+      <origin rpy="0 0 3.14159265" xyz="-0.02262 0.00759 0.00738"/>
+      <mass value="0.03804"/>
+      <inertia ixx="13567E-9" ixy="1849E-9" ixz="3622E-9" iyy="15784E-9" iyz="3616E-9" izz="7478E-9"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 0 3.14159265" xyz="0 0 0"/>
+      <geometry>
 		<mesh filename="kuka_maniskill_sim/meshes/gripper/finger.dae"/>
-		</geometry>
-	</visual>
+      </geometry>
+      <material name="DarkGray">
+        <color rgba=".4 0.4 0.4 1.0"/>
+      </material>
+    </visual>
+    <collision>
+		<origin rpy="0 0 3.14159265"/>
+      <geometry>
+		<mesh filename="kuka_maniskill_sim/meshes/gripper/finger_collision.dae"/>
+      </geometry>
+    </collision>
 	</link>
 
 	<link name="right_robotiq_hande_end"/>
@@ -999,7 +1087,7 @@
 	<child  link="right_robotiq_hande_left_finger"/>
 	<origin xyz="0 0 0.099" rpy="0 0 0"/>
 	<axis xyz="1 0 0"/>
-	<limit effort="130" lower="0.0" upper="0.03" velocity="0.15"/>
+	<limit effort="130" lower="0.0" upper="0.025" velocity="0.15"/>
 	</joint>
 
 	<joint name="right_robotiq_hande_right_finger_joint" type="prismatic">
@@ -1007,8 +1095,8 @@
 	<child  link="right_robotiq_hande_right_finger"/>
 	<origin xyz="0 0 0.099" rpy="0 0 0"/>
 	<axis xyz="-1 0 0"/>
-	<limit effort="130" lower="0.0" upper="0.03" velocity="0.15"/>
-	<mimic joint="right_robotiq_hande_left_finger_joint" multiplier="1" offset="0"/>
+	<limit effort="130" lower="0.0" upper="0.025" velocity="0.15"/>
+	<!-- <mimic joint="right_robotiq_hande_left_finger_joint" multiplier="1" offset="0"/> -->
 	</joint>
 
 	<joint name="right_robotiq_hande_end_joint" type="fixed">
