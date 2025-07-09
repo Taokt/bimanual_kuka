@@ -1108,20 +1108,20 @@
 	<!-- ====================  start of camera inserts  ======================== -->
     <link name="left_camera">
         <visual>
-            <origin xyz="0 -0.032 0" rpy="0 0 -1.57"/>
+            <origin xyz="0 0 0" rpy="1.57 0 1.57"/>
             <geometry>
                 <mesh filename="package://kuka_maniskill_sim/meshes/camera/d435.dae" /> <!-- 根据D435相机的实际尺寸调整 -->
             </geometry>
         </visual>
         <collision>
-            <origin xyz="0 -0.032 0" rpy="0 0 0"/>
+            <origin xyz="0 0 0" rpy="1.57 0 1.57"/>
             <geometry>
                 <box size="0.025 0.090 0.025"/> 
             </geometry>
         </collision>
         <inertial>
         <mass value="0.1"/>
-        <origin xyz="0 0 0" rpy="0 0 0"/>
+            <origin xyz="0 0 0" rpy="1.57 0 1.57"/>
         <inertia ixx="0.001" ixy="0.0" ixz="0.0" iyy="0.001" iyz="0.0" izz="0.001"/> 
         </inertial>
     </link>
@@ -1129,25 +1129,25 @@
     <joint name="left_camera_joint" type="fixed">
         <parent link="left_arm_link_ee"/>
         <child link="left_camera"/>
-        <origin xyz="0.08 0.032 0.03" rpy="0 0 0"/>
+        <origin xyz="0.08 0.0 0.03" rpy="0 -1.57 3.141592653589793"/>
     </joint>
 
     <link name="right_camera">
         <visual>
-            <origin xyz="0 -0.032 0" rpy="0 0 -1.57"/>
+            <origin xyz="0 0 0" rpy="1.57 0 1.57"/>
             <geometry>
                 <mesh filename="package://kuka_maniskill_sim/meshes/camera/d435.dae" /> <!-- 根据D435相机的实际尺寸调整 -->
             </geometry>
         </visual>
         <collision>
-            <origin xyz="0 -0.032 0" rpy="0 0 0"/>
+            <origin xyz="0 0 0" rpy="1.57 0 1.57"/>
             <geometry>
                 <box size="0.025 0.090 0.025"/> 
             </geometry>
         </collision>
         <inertial>
         <mass value="0.1"/> 
-        <origin xyz="0 0 0" rpy="0 0 0"/>
+            <origin xyz="0 0 0" rpy="1.57 0 1.57"/>
         <inertia ixx="0.001" ixy="0.0" ixz="0.0" iyy="0.001" iyz="0.0" izz="0.001"/>
         </inertial>
     </link>
@@ -1155,7 +1155,7 @@
     <joint name="right_camera_joint" type="fixed">
         <parent link="right_arm_link_ee"/>
         <child link="right_camera"/>
-        <origin xyz="0.08 0.032 0.03" rpy="0 0 0"/>
+        <origin xyz="0.08 0.0 0.03" rpy="0 -1.57 3.141592653589793"/>
     </joint>
 
 	<!-- ====================  front and head cameras are added automatically  ======================== -->
