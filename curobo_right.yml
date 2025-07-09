@@ -23,8 +23,8 @@ robot_cfg:
         "right_arm_link_7",
         "right_robotiq_hande_coupler",
         "right_robotiq_hande_link",
-      #   "right_robotiq_hande_left_finger",
-      #   "right_robotiq_hande_right_finger",
+        "right_robotiq_hande_left_finger",
+        "right_robotiq_hande_right_finger",
         "right_camera"
       ]
     collision_spheres: /home/project/RoboTwin/assets/embodiments/bimanual_kuka/collision_kuka_right.yml
@@ -56,8 +56,8 @@ robot_cfg:
       right_arm_link_7: 0.0,
       right_robotiq_hande_coupler: 0.02,
       right_robotiq_hande_link: 0.0,
-      right_robotiq_hande_left_finger: 0.01,
-      right_robotiq_hande_right_finger: 0.01,
+      right_robotiq_hande_left_finger: 0.005,
+      right_robotiq_hande_right_finger: 0.005,
       right_camera: 0.00
       }
 
@@ -75,7 +75,7 @@ robot_cfg:
         "right_robotiq_hande_right_finger",
         "right_camera"
       ]
-    # lock_joints: {"right_robotiq_hande_left_finger_joint": 0.04, "right_robotiq_hande_right_finger_joint": 0.04}
+    lock_joints: {"right_robotiq_hande_left_finger_joint": 0.04, "right_robotiq_hande_right_finger_joint": 0.04}
     extra_links: null
 
     cspace:
