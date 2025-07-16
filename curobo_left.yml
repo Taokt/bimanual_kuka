@@ -1,13 +1,14 @@
 robot_cfg:
   kinematics:
     use_usd_kinematics: False
-    # usd_path: "FILL_THIS"
-    # usd_robot_root: "/robot"
-    # isaac_usd_path: ""
-    # usd_flip_joints: {}
-    # usd_flip_joint_limits: []
-    urdf_path: /home/project/RoboTwin/assets/embodiments/bimanual_kuka/urdf/dual_arm/dual_arm_w_grippers.urdf
-    asset_root_path: null
+    usd_path: "/home/project/RoboTwin/assets/embodiments/bimanual_kuka/urdf/left.usd"
+    usd_robot_root: "/home/project/RoboTwin/assets/embodiments/bimanual_kuka/urdf/dual_arm/"
+    isaac_usd_path: ""
+    usd_flip_joints: {}
+    usd_flip_joint_limits: []
+
+    urdf_path: "/home/project/RoboTwin/assets/embodiments/bimanual_kuka/urdf/dual_arm/dual_arm_w_grippers.urdf"
+    asset_root_path: "/home/project/RoboTwin/assets/embodiments/bimanual_kuka/urdf/"
 
     base_link: "bh_robot_base"
     ee_link: "left_arm_link_ee"
@@ -28,7 +29,7 @@ robot_cfg:
         "left_camera"
       ]
     collision_spheres: /home/project/RoboTwin/assets/embodiments/bimanual_kuka/collision_kuka_left.yml
-    collision_sphere_buffer: 0.004
+    collision_sphere_buffer: 0.01
     extra_collision_spheres: {}
     use_global_cumul: True
     self_collision_ignore:
@@ -49,17 +50,17 @@ robot_cfg:
     self_collision_buffer:
       {
       left_arm_link_0: 0.0,
-      left_arm_link_1: -0.02,
+      left_arm_link_1: 0.0,
       left_arm_link_2: 0.0,
       left_arm_link_3: 0.0,
       left_arm_link_4: 0.0,
       left_arm_link_5: 0.0,
       left_arm_link_6: 0.0,
       left_arm_link_7: 0.0,
-      left_robotiq_hande_coupler: 0.02,
+      left_robotiq_hande_coupler: 0.0,
       left_robotiq_hande_link: 0.00,
-      left_robotiq_hande_left_finger: 0.005,
-      left_robotiq_hande_right_finger: 0.005,
+      left_robotiq_hande_left_finger: 0.0,
+      left_robotiq_hande_right_finger: 0.0,
       left_camera: 0.00
       }
 
@@ -78,7 +79,7 @@ robot_cfg:
         "left_robotiq_hande_right_finger",
         "left_camera"
       ]
-    lock_joints: {"left_robotiq_hande_left_finger_joint": 0.04, "left_robotiq_hande_right_finger_joint": 0.04}
+    lock_joints: {"left_robotiq_hande_left_finger_joint": 0.0425, "left_robotiq_hande_right_finger_joint": 0.0425}
     extra_links: null
 
     cspace:
@@ -93,10 +94,10 @@ robot_cfg:
         "left_robotiq_hande_left_finger_joint",
         "left_robotiq_hande_right_finger_joint"
       ]
-      retract_config: [0.0, -0.78, 0.0, -1.4, 0.0, 0.6, 0.0, 0.04, 0.04]
+      retract_config: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0425, 0.0425]
       null_space_weight: [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]
       cspace_distance_weight: [1.0, 0.9, 0.8, 0.8, 0.7, 0.6, 0.5, 1.0, 1.0] 
       max_jerk: 500.0
       max_acceleration: 15.0
 planner:
-  frame_bias: [0, 0, 0]
+  frame_bias: [0, 0, -0.02]

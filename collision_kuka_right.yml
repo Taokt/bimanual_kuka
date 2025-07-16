@@ -1,19 +1,57 @@
-##
-## Copyright (c) 2023 NVIDIA CORPORATION & AFFILIATES. All rights reserved.
-##
-## NVIDIA CORPORATION, its affiliates and licensors retain all intellectual
-## property and proprietary rights in and to this material, related
-## documentation and any modifications thereto. Any use, reproduction,
-## disclosure or distribution of this material and related documentation
-## without an express license agreement from NVIDIA CORPORATION or
-## its affiliates is strictly prohibited.
-##
+# The robot description defines the generalized coordinates and how to map those
+# to the underlying URDF dofs.
+
+api_version: 1.0
+
+# Defines the generalized coordinates. Each generalized coordinate is assumed
+# to have an entry in the URDF.
+# Lula will only use these joints to control the robot position.
+cspace:
+    left_arm_A1
+    right_arm_A1
+    left_arm_A2
+    right_arm_A2
+    left_arm_A3
+    right_arm_A3
+    left_arm_A4
+    right_arm_A4
+    left_arm_A5
+    right_arm_A5
+    left_arm_A6
+    right_arm_A6
+    left_arm_A7
+    right_arm_A7
+    left_robotiq_hande_left_finger_joint
+    left_robotiq_hande_right_finger_joint
+    right_robotiq_hande_left_finger_joint
+    right_robotiq_hande_right_finger_joint
+default_q: [
+    0.0,0.0,0.0,0.0,0.0,0.0,-0.0,-0.0,-0.0,-0.0,0.0,0.0,0.0,0.0,0.0425,0.0425,0.0425,0.0425
+]
+
+acceleration_limits: [
+   10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10
+]
+
+jerk_limits: [
+   10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,10000,10000
+]
+
+# Most dimensions of the cspace have a direct corresponding element
+# in the URDF. This list of rules defines how unspecified coordinates
+# should be extracted or how values in the URDF should be overwritten.
+
+cspace_to_urdf_rules:
+
+# Lula uses collision spheres to define the robot geometry in order to avoid
+# collisions with external obstacles.  If no spheres are specified, Lula will
+# not be able to avoid obstacles.
 
 collision_spheres:
-  - right_arm_link_0:
+  left_arm_link_0:
     - "center": [0.003, -0.005, 0.075]
       "radius": 0.09206
-  - right_arm_link_1:
+  left_arm_link_1:
     - "center": [-0.004, -0.062, 0.185]
       "radius": 0.07138
     - "center": [-0.0, -0.026, 0.059]
@@ -24,33 +62,13 @@ collision_spheres:
       "radius": 0.05526
     - "center": [0.01, -0.055, 0.206]
       "radius": 0.06399
-    - "center": [-0.014, -0.023, 0.057]
-      "radius": 0.06668
-    - "center": [0.013, -0.024, 0.06]
-      "radius": 0.06668
-    - "center": [-0.028, -0.031, 0.223]
-      "radius": 0.04586
-    - "center": [0.04, -0.024, 0.174]
-      "radius": 0.04384
-    - "center": [-0.013, -0.045, 0.1]
-      "radius": 0.06265
-    - "center": [-0.017, 0.019, 0.041]
-      "radius": 0.05056
-    - "center": [-0.041, -0.027, 0.181]
-      "radius": 0.04384
-    - "center": [0.012, -0.05, 0.113]
-      "radius": 0.06399
-    - "center": [0.023, -0.024, 0.231]
-      "radius": 0.04317
-    - "center": [0.004, -0.062, 0.173]
-      "radius": 0.07138
-    - "center": [0.037, -0.004, 0.037]
-      "radius": 0.04653
-    - "center": [0.013, 0.034, 0.035]
-      "radius": 0.04518
-    - "center": [0.047, -0.018, 0.207]
-      "radius": 0.03779
-  - right_arm_link_2:
+    - "center": [-0.0, -0.033, 0.078]
+      "radius": 0.06987
+    - "center": [-0.001, -0.04, 0.097]
+      "radius": 0.07037
+    - "center": [-0.001, -0.047, 0.117]
+      "radius": 0.07087
+  left_arm_link_2:
     - "center": [0.001, 0.068, 0.004]
       "radius": 0.07553
     - "center": [0.002, 0.027, 0.151]
@@ -59,234 +77,200 @@ collision_spheres:
       "radius": 0.0727
     - "center": [0.005, -0.015, 0.167]
       "radius": 0.05924
-    - "center": [-0.014, 0.05, 0.107]
-      "radius": 0.06208
-    - "center": [0.003, 0.062, -0.007]
-      "radius": 0.07341
-    - "center": [-0.021, 0.021, 0.163]
-      "radius": 0.0642
-    - "center": [0.013, 0.05, 0.107]
-      "radius": 0.06279
-  - right_arm_link_3:
+    - "center": [0.001, 0.036, 0.126]
+      "radius": 0.07482
+    - "center": [0.001, 0.046, 0.101]
+      "radius": 0.0741
+    - "center": [0.001, 0.055, 0.077]
+      "radius": 0.0734
+  left_arm_link_3:
     - "center": [0.001, 0.054, 0.136]
-      "radius": 0.07138
+      "radius": 0.06938
     - "center": [0.0, 0.026, 0.059]
-      "radius": 0.06937
+      "radius": 0.06737
     - "center": [0.002, 0.061, 0.193]
-      "radius": 0.07071
+      "radius": 0.06871
     - "center": [0.001, -0.015, 0.044]
-      "radius": 0.05459
-    - "center": [-0.014, 0.052, 0.21]
-      "radius": 0.06063
-    - "center": [0.014, 0.023, 0.057]
-      "radius": 0.06668
-    - "center": [-0.013, 0.024, 0.06]
-      "radius": 0.06668
-    - "center": [0.028, 0.031, 0.223]
-      "radius": 0.04586
-  - right_arm_link_4:
+      "radius": 0.05259
+    - "center": [0.001, 0.035, 0.093]
+      "radius": 0.0677
+    - "center": [0.001, 0.044, 0.126]
+      "radius": 0.06804
+    - "center": [0.002, 0.053, 0.159]
+      "radius": 0.06837
+  left_arm_link_4:
     - "center": [-0.002, -0.027, 0.151]
-      "radius": 0.07553
+      "radius": 0.07353
     - "center": [-0.001, -0.068, 0.004]
-      "radius": 0.07553
+      "radius": 0.07353
     - "center": [-0.0, -0.064, 0.052]
-      "radius": 0.0727
+      "radius": 0.0707
     - "center": [-0.005, 0.015, 0.167]
-      "radius": 0.05924
+      "radius": 0.05724
     - "center": [0.014, -0.05, 0.107]
-      "radius": 0.06208
-    - "center": [-0.003, -0.062, -0.007]
-      "radius": 0.07341
-  - right_arm_link_5:
-    - "center": [-0.002, -0.033, 0.05]
-      "radius": 0.04762
-    - "center": [0.001, 0.0, 0.038]
-      "radius": 0.04636
-    - "center": [0.029, -0.024, 0.041]
-      "radius": 0.04068
-    - "center": [-0.036, -0.013, 0.038]
-      "radius": 0.03752
-    - "center": [0.0, -0.061, 0.087]
-      "radius": 0.03184
-    - "center": [0.032, 0.021, 0.033]
-      "radius": 0.0331
-    - "center": [-0.019, 0.032, 0.033]
-      "radius": 0.03247
-    - "center": [-0.003, -0.082, 0.156]
-      "radius": 0.02615
-    - "center": [-0.003, -0.076, 0.117]
-      "radius": 0.02615
-    - "center": [0.009, 0.047, 0.027]
-      "radius": 0.02678
-    - "center": [-0.021, -0.028, 0.045]
-      "radius": 0.04446
-    - "center": [0.032, -0.076, 0.173]
-      "radius": 0.02363
-    - "center": [-0.041, 0.019, 0.031]
-      "radius": 0.02994
-    - "center": [0.017, -0.048, 0.067]
-      "radius": 0.03499
-    - "center": [-0.026, -0.075, 0.164]
-      "radius": 0.02426
-    - "center": [0.008, -0.084, 0.188]
-      "radius": 0.023
-    - "center": [0.04, 0.003, 0.034]
-      "radius": 0.03436
-    - "center": [0.018, -0.08, 0.143]
-      "radius": 0.02363
-    - "center": [-0.036, -0.073, 0.203]
-      "radius": 0.02236
-    - "center": [-0.016, -0.051, 0.071]
-      "radius": 0.03373
-    - "center": [0.037, -0.073, 0.203]
-      "radius": 0.02173
-    - "center": [0.0, -0.073, 0.229]
-      "radius": 0.0211
-    - "center": [-0.014, -0.084, 0.196]
-      "radius": 0.02173
-    - "center": [0.02, -0.071, 0.105]
-      "radius": 0.023
-    - "center": [0.021, -0.073, 0.224]
-      "radius": 0.0211
-    - "center": [-0.018, -0.08, 0.135]
-      "radius": 0.02236
-    - "center": [-0.025, -0.073, 0.222]
-      "radius": 0.0211
-    - "center": [-0.021, -0.066, 0.095]
-      "radius": 0.02426
-    - "center": [0.018, -0.03, 0.047]
-      "radius": 0.04509
-    - "center": [-0.034, -0.073, 0.178]
-      "radius": 0.02173
-  - right_arm_link_6:
+      "radius": 0.06008
+    - "center": [-0.001, -0.036, 0.126]
+      "radius": 0.07281
+    - "center": [-0.001, -0.046, 0.101]
+      "radius": 0.0721
+    - "center": [-0.001, -0.055, 0.077]
+      "radius": 0.0714
+  left_arm_link_5:
+    - "center": [-0.01, -0.058, 0.206]
+      "radius": 0.02684
+    - "center": [-0.001, -0.031, 0.04]
+      "radius": 0.04
+    - "center": [-0.008, -0.052, 0.17]
+      "radius": 0.02966
+    - "center": [-0.0, -0.063, 0.127]
+      "radius": 0.03277
+    - "center": [-0.008, -0.047, 0.083]
+      "radius": 0.0362
+  left_arm_link_6:
     - "center": [-0.001, 0.074, -0.009]
-      "radius": 0.08212
+      "radius": 0.07212
     - "center": [0.0, 0.072, 0.03]
-      "radius": 0.07556
-  - right_robotiq_hande_coupler:
-    - "center": [0.015, 0.03, 0.007]
-      "radius": 0.02347
-    - "center": [-0.02, 0.028, 0.004]
-      "radius": 0.02347
-    - "center": [-0.02, -0.027, 0.004]
-      "radius": 0.02347
-    - "center": [0.017, 0.029, 0.003]
-      "radius": 0.02347
-    - "center": [-0.034, 0.005, 0.005]
-      "radius": 0.02265
-    - "center": [0.025, -0.022, 0.006]
-      "radius": 0.02265
-    - "center": [0.033, 0.01, 0.004]
-      "radius": 0.02265
-    - "center": [0.032, -0.013, 0.005]
-      "radius": 0.02265
-  - right_robotiq_hande_link:
-    - "center": [0.0, -0.0, 0.044]
-      "radius": 0.03506
-    - "center": [0.001, -0.006, 0.023]
-      "radius": 0.03282
-    - "center": [0.0, -0.0, 0.056]
-      "radius": 0.03506
-    - "center": [0.001, 0.02, 0.018]
-      "radius": 0.02722
-    - "center": [-0.0, -0.02, 0.018]
-      "radius": 0.02722
-    - "center": [-0.028, 0.0, 0.011]
-      "radius": 0.01939
-    - "center": [-0.013, -0.01, 0.069]
-      "radius": 0.02331
-    - "center": [0.012, 0.001, 0.016]
-      "radius": 0.02555
-  - right_robotiq_hande_left_finger:
+      "radius": 0.06556
+    - "center": [0.007, 0.087, -0.035]
+      "radius": 0.05949
+  left_robotiq_hande_coupler:
     - "center": [0.005, -0.002, 0.004]
-      "radius": 0.00716
-    - "center": [-0.013, -0.017, -0.009]
-      "radius": 0.00653
-    - "center": [0.007, 0.007, 0.007]
-      "radius": 0.00653
-    - "center": [0.005, -0.011, -0.009]
-      "radius": 0.00653
-    - "center": [-0.023, -0.017, -0.008]
-      "radius": 0.00653
-    - "center": [-0.01, -0.011, -0.009]
-      "radius": 0.00653
-    - "center": [0.007, -0.006, 0.005]
-      "radius": 0.00716
-    - "center": [0.007, 0.001, 0.019]
-      "radius": 0.00589
-    - "center": [0.004, 0.005, 0.026]
-      "radius": 0.00589
-    - "center": [0.001, -0.007, 0.004]
-      "radius": 0.00653
-    - "center": [0.003, -0.006, 0.027]
-      "radius": 0.00589
-    - "center": [-0.015, -0.011, -0.009]
-      "radius": 0.00653
-    - "center": [-0.026, -0.01, -0.009]
-      "radius": 0.00589
-    - "center": [0.003, 0.006, 0.033]
-      "radius": 0.00589
-    - "center": [0.003, 0.0, 0.036]
-      "radius": 0.00589
-    - "center": [0.007, -0.007, 0.018]
-      "radius": 0.00589
-    - "center": [-0.003, -0.01, -0.008]
-      "radius": 0.00589
-    - "center": [0.008, 0.005, 0.014]
-      "radius": 0.00589
-    - "center": [0.003, -0.005, 0.04]
-      "radius": 0.00589
-    - "center": [0.003, 0.006, 0.042]
-      "radius": 0.00589
-  - right_robotiq_hande_right_finger:
-    - "center": [-0.005, 0.0, 0.005]
-      "radius": 0.00716
-    - "center": [-0.007, 0.006, 0.005]
-      "radius": 0.00716
-    - "center": [0.015, 0.011, -0.009]
-      "radius": 0.00653
-    - "center": [-0.005, 0.011, -0.009]
-      "radius": 0.00653
-    - "center": [0.01, 0.017, -0.008]
-      "radius": 0.00653
-    - "center": [0.023, 0.017, -0.008]
-      "radius": 0.00653
-    - "center": [-0.007, -0.007, 0.007]
-      "radius": 0.00653
-    - "center": [-0.001, 0.007, 0.004]
-      "radius": 0.00653
-    - "center": [-0.003, -0.002, 0.03]
-      "radius": 0.00589
-    - "center": [-0.003, 0.006, 0.039]
-      "radius": 0.00589
-    - "center": [-0.008, -0.005, 0.014]
-      "radius": 0.00589
-    - "center": [-0.008, 0.001, 0.017]
-      "radius": 0.00589
-    - "center": [-0.003, -0.006, 0.042]
-      "radius": 0.00589
-    - "center": [0.022, 0.014, -0.002]
-      "radius": 0.00589
-    - "center": [-0.003, 0.005, 0.026]
-      "radius": 0.00589
-    - "center": [-0.006, -0.007, 0.022]
-      "radius": 0.00589
-    - "center": [0.01, 0.011, -0.009]
-      "radius": 0.00653
-    - "center": [0.024, 0.01, -0.01]
-      "radius": 0.00589
-    - "center": [-0.003, 0.006, 0.033]
-      "radius": 0.00589
-    - "center": [-0.007, 0.007, 0.018]
-      "radius": 0.00589
-  - right_camera:
-    - "center": [-0.013, 0.034, -0.001]
+      "radius": 0.02847
+  left_arm_link_7:
+    - "center": [0.001, -0.002, 0.024]
+      "radius": 0.03668
+  left_robotiq_hande_link:
+    - "center": [0.002, 0.001, 0.065]
+      "radius": 0.03506
+  left_robotiq_hande_left_finger:
+    - "center": [0.0, 0.00, 0.0]
+      "radius": 0.001
+    # - "center": [0.003, -0.004, 0.039]
+    #   "radius": 0.00616
+    # - "center": [0.007, -0.0, 0.017]
+    #   "radius": 0.00616
+    # - "center": [-0.002, -0.01, 0.002]
+    #   "radius": 0.00616
+    # - "center": [0.004, -0.003, 0.033]
+    #   "radius": 0.00616
+    # - "center": [0.005, -0.002, 0.028]
+    #   "radius": 0.00616
+    # - "center": [0.006, -0.001, 0.022]
+    #   "radius": 0.00616
+  left_robotiq_hande_right_finger:
+    - "center": [0.0, 0.00, 0.0]
+      "radius": 0.001
+    # - "center": [-0.005, 0.0, 0.005]
+    #   "radius": 0.00616
+    # - "center": [-0.005, 0.006, 0.039]
+    #   "radius": 0.00616
+    # - "center": [-0.006, 0.003, 0.022]
+    #   "radius": 0.00616
+    # - "center": [-0.005, 0.002, 0.014]
+    #   "radius": 0.00616
+    # - "center": [-0.005, 0.003, 0.022]
+    #   "radius": 0.00616
+    # - "center": [-0.005, 0.004, 0.031]
+    #   "radius": 0.00616
+  right_arm_link_0:
+    - "center": [-0.024, -0.006, 0.071]
+      "radius": 0.09206
+  right_arm_link_1:
+    - "center": [-0.004, -0.062, 0.185]
+      "radius": 0.07138
+    - "center": [-0.0, -0.026, 0.059]
+      "radius": 0.06937
+    - "center": [-0.003, -0.053, 0.153]
+      "radius": 0.07087
+    - "center": [-0.002, -0.044, 0.122]
+      "radius": 0.07037
+    - "center": [-0.001, -0.035, 0.091]
+      "radius": 0.06987
+  right_arm_link_2:
+    - "center": [0.012, 0.049, 0.001]
+      "radius": 0.06953
+    - "center": [0.002, 0.027, 0.151]
+      "radius": 0.06953
+    - "center": [-0.003, 0.056, 0.08]
+      "radius": 0.0667
+    - "center": [-0.001, 0.008, 0.184]
+      "radius": 0.05324
+  right_arm_link_3:
+    - "center": [0.007, 0.046, 0.118]
+      "radius": 0.06638
+    - "center": [-0.001, 0.014, 0.052]
+      "radius": 0.06437
+    - "center": [-0.005, 0.045, 0.193]
+      "radius": 0.06571
+  right_arm_link_4:
+    - "center": [0.005, -0.012, 0.178]
+      "radius": 0.07053
+    - "center": [-0.001, -0.065, 0.01]
+      "radius": 0.07053
+    - "center": [-0.009, -0.049, 0.097]
+      "radius": 0.0677
+  right_arm_link_5:
+    - "center": [-0.004, -0.009, 0.035]
+      "radius": 0.03758
+    - "center": [-0.002, -0.068, 0.196]
+      "radius": 0.02819
+    - "center": [-0.003, -0.072, 0.109]
+      "radius": 0.01228
+    - "center": [-0.005, -0.017, 0.034]
+      "radius": 0.08
+    - "center": [-0.009, -0.051, 0.105]
+      "radius": 0.03255
+    - "center": [-0.007, -0.066, 0.147]
+      "radius": 0.03029
+  right_arm_link_6:
+    - "center": [-0.001, 0.068, -0.011]
+      "radius": 0.07212
+    - "center": [0.0, 0.072, 0.03]
+      "radius": 0.06556
+  right_robotiq_hande_coupler:
+    - "center": [0.005, -0.002, 0.004]
+      "radius": 0.02847
+  right_arm_link_7:
+    - "center": [0.002, 0.0, 0.006]
+      "radius": 0.05
+  right_robotiq_hande_link:
+    - "center": [0.001, -0.001, 0.056]
+      "radius": 0.03364
+    - "center": [0.001, -0.006, 0.023]
+      "radius": 0.03105
+    - "center": [0.002, -0.004, 0.075]
+      "radius": 0.03364
+  right_robotiq_hande_left_finger:
+    - "center": [0.0, 0.00, 0.0]
+      "radius": 0.001
+    # - "center": [0.01, -0.001, 0.016]
+    #   "radius": 0.00716
+    # - "center": [0.002, -0.001, 0.04]
+    #   "radius": 0.00716
+    # - "center": [0.004, -0.014, -0.008]
+    #   "radius": 0.00716
+  right_robotiq_hande_right_finger:
+    - "center": [0.0, 0.00, 0.0]
+      "radius": 0.001
+    # - "center": [-0.005, 0.001, 0.036]
+    #   "radius": 0.00716
+    # - "center": [-0.009, 0.001, 0.015]
+    #   "radius": 0.00716
+    # - "center": [-0.001, 0.005, -0.007]
+    #   "radius": 0.00716
+    # - "center": [0.011, -0.003, -0.012]
+    #   "radius": 0.00716
+  right_camera:
+    - "center": [-0.012, 0.03, 0.001]
       "radius": 0.01544
-    - "center": [-0.019, 0.034, 0.004]
+    - "center": [-0.011, -0.0, 0.0]
       "radius": 0.01544
-    - "center": [-0.016, 0.0, 0.004]
+    - "center": [-0.012, -0.031, 0.0]
       "radius": 0.0147
-    - "center": [-0.021, -0.031, -0.007]
-      "radius": 0.01396
-    - "center": [-0.021, -0.031, 0.005]
-      "radius": 0.01396
+  left_camera:
+    - "center": [-0.011, -0.03, 0.0]
+      "radius": 0.01544
+    - "center": [-0.013, 0.03, -0.0]
+      "radius": 0.01544
+    - "center": [-0.013, 0.0, -0.002]
+      "radius": 0.0147
