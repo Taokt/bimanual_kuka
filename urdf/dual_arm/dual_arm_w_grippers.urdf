@@ -387,7 +387,9 @@
 		<child link="left_arm_link_ee"/>
 		<origin rpy="0 0 1.57" xyz="0 0 0.035"/>
 	</joint>
-	<link name="left_arm_link_ee">\n        </link>
+	<link name="left_arm_link_ee">
+		<origin rpy="0 0 -0.785398" xyz="0 0 0"/> 
+	</link>
 	<!-- ros_control-plugin -->
 	<gazebo>
 		<plugin filename="ign_ros2_control-system" name="ign_ros2_control::IgnitionROS2ControlPlugin">
@@ -766,7 +768,9 @@
 		<child link="right_arm_link_ee"/>
 		<origin rpy="0 0 1.57" xyz="0 0 0.035"/>
 	</joint>
-	<link name="right_arm_link_ee">\n        </link>
+	<link name="right_arm_link_ee">
+		<origin rpy="0 0 -0.785398" xyz="0 0 0"/>
+	</link>
 	<!-- KDL requires a link without inertia -->
 	<link name="bh_robot_base"/>
 	<joint name="steel_torso_base_joint" type="fixed">
@@ -956,9 +960,9 @@
 
 	<!-- weld the gripper base to the wrist link -->
 	<joint name="left_gripper_weld" type="fixed">
-	<parent link="left_arm_link_7"/>
+	<parent link="left_arm_link_ee"/>
 	<child  link="left_robotiq_hande_coupler"/>
-	<origin xyz="0 0 0" rpy="0 0 0"/>
+	<origin xyz="0 0 0" rpy="0 0 -1.57"/>
 	</joint>
 
 	<joint name="left_robotiq_hande_base_joint" type="fixed">
@@ -1071,9 +1075,9 @@
 	<link name="right_robotiq_hande_end"/>
 
 	<joint name="right_gripper_weld" type="fixed">
-	<parent link="right_arm_link_7"/>
+	<parent link="right_arm_link_ee"/>
 	<child  link="right_robotiq_hande_coupler"/>
-	<origin xyz="0 0 0" rpy="0 0 0"/>
+	<origin xyz="0 0 0" rpy="0 0 -1.57"/>
 	</joint>
 
 	<joint name="right_robotiq_hande_base_joint" type="fixed">
