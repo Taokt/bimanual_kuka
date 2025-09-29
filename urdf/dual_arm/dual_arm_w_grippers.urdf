@@ -1133,7 +1133,7 @@
     <joint name="left_camera_joint" type="fixed">
         <parent link="left_arm_link_ee"/>
         <child link="left_camera"/>
-        <origin xyz="0.08 0.0 0.03" rpy="0 -1.57 3.141592653589793"/>
+        <origin xyz="0.08 0.0 0.03" rpy="0 -1.2 3.141592653589793"/>
     </joint>
 
     <link name="right_camera">
@@ -1159,7 +1159,7 @@
     <joint name="right_camera_joint" type="fixed">
         <parent link="right_arm_link_ee"/>
         <child link="right_camera"/>
-        <origin xyz="0.08 0.0 0.03" rpy="0 -1.57 3.141592653589793"/>
+        <origin xyz="0.08 0.0 0.03" rpy="0 -1.2 3.141592653589793"/>
     </joint>
 
 	<!-- ====================  front and head cameras are added automatically  ======================== -->
