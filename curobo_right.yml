@@ -2,7 +2,7 @@ robot_cfg:
   kinematics:
     use_usd_kinematics: False
     usd_path: "/home/project/RoboTwin/assets/embodiments/bimanual_kuka/urdf/right.usd"
-    usd_robot_root: "/home/project/RoboTwin/assets/embodiments/bimanual_kuka/urdf/dual_arm/"
+    usd_robot_root: "/home/project/RoboTwin/assets/embodiments/bimanual_kuka/urdf/dual_arm"
     isaac_usd_path: ""
     usd_flip_joints: {}
     usd_flip_joint_limits: []
