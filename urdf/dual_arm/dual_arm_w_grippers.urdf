@@ -1114,7 +1114,7 @@
         <visual>
             <origin xyz="0 0 0" rpy="1.57 0 1.57"/>
             <geometry>
-                <mesh filename="package://kuka_maniskill_sim/meshes/camera/d435.dae" /> <!-- 根据D435相机的实际尺寸调整 -->
+                <mesh filename="package://kuka_maniskill_sim/meshes/camera/d435.dae" /> <!-- adjusted for D435 camera dimensions -->
             </geometry>
         </visual>
         <collision>
@@ -1140,7 +1140,7 @@
         <visual>
             <origin xyz="0 0 0" rpy="1.57 0 1.57"/>
             <geometry>
-                <mesh filename="package://kuka_maniskill_sim/meshes/camera/d435.dae" /> <!-- 根据D435相机的实际尺寸调整 -->
+                <mesh filename="package://kuka_maniskill_sim/meshes/camera/d435.dae" /> <!-- adjusted for D435 camera dimensions -->
             </geometry>
         </visual>
         <collision>
